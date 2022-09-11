@@ -1,13 +1,13 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.print.attribute.standard.Destination;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
-public class FlightTest {
+public class FlightManagerTest {
 
+    FlightManager flightManager;
     Flight flight;
 
     Plane plane;
@@ -29,7 +29,7 @@ public class FlightTest {
     ArrayList<Passenger> passengers;
 
     @Before
-    public void before(){
+    public void before() {
 
         plane = new Plane(PlaneType.ERJ135);
 
@@ -69,18 +69,29 @@ public class FlightTest {
                 "EDI",
                 "20:35"
         );
+
+        flightManager = new FlightManager(flight);
+
     }
 
     @Test
-    public void canGetAvailableSeats(){
-        assertEquals(35, flight.getAvailableSeats());
+    public void canGetMaxBagWeightPerPerson(){
+        assertEquals(40, flightManager.getMaxBagWeightPerPerson());
     }
 
     @Test
-    public void canBookPassenger(){
-        Passenger passenger = new Passenger("Omar Grassman", 1);
-        flight.bookPassenger(passenger);
-        assertEquals(34, flight.getAvailableSeats());
+    public void canGetActualBaggagePerPerson(){
+        assertEquals(30, flightManager.getActualBaggagePerPerson(passenger5));
+    }
+
+    @Test
+    public void canGetTotalPassengersBaggage(){
+        assertEquals(90, flightManager.getTotalPassengersBaggage());
+    }
+
+    @Test
+    public void canGetBaggageWeightRemaining(){
+        assertEquals(3110, flightManager.getBaggageWeightRemaining());
     }
 
 }

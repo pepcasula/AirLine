@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 
 public class CabinCrewMemberTest {
 
-    private CabinCrewMember cabinCrewMember;
+    CabinCrewMember cabinCrewMember;
 
     @Before
     public void before(){

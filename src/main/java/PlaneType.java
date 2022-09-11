@@ -11,12 +11,11 @@ public enum PlaneType {
         this.totalWeight = totalWeight;
     }
 
-
     public int getCapacity(){
         return this.capacity;
     }
 
-    public int getTotalWeight(){
+    public int getWeight(){
         return this.totalWeight;
     }
 

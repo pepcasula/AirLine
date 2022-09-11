@@ -10,12 +10,4 @@ public class Plane {
         return this.planeType;
     }
 
-    public int getPlaneCapacity(){
-        return this.planeType.getCapacity();
-    }
-
-    public int getBagWeightPerPerson(){
-        return this.planeType.getTotalWeight() / 2 / this.planeType.getCapacity();
-    }
-
 }

@@ -30,11 +30,11 @@ public class Flight {
     }
 
     public int getAvailableSeats(){
-        return this.plane.getPlaneCapacity() - this.passengers.size();
+        return this.plane.getPlaneType().getCapacity() - this.passengers.size();
     }
 
     public void bookPassenger(Passenger passenger) {
-        if ((this.plane.getPlaneCapacity() - this.passengers.size()) >= 1) {
+        if ((this.plane.getPlaneType().getCapacity() - this.passengers.size()) >= 1) {
             this.passengers.add(passenger);
         }
     }
